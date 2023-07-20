@@ -2,7 +2,6 @@ package com.example.demo.services;
 
 import com.example.demo.entity.LeadDetail;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import java.util.List;
 
 public interface ILeadDetailService {

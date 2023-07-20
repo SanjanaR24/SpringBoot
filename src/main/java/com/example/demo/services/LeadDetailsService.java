@@ -26,10 +26,8 @@ public class LeadDetailsService implements ILeadDetailService{
     @Override
     public LeadDetail editLeadDetails(LeadDetail ld) {
         Long leadId = ld.getId();
-        Optional<LeadDetail> existingLeadOptional = repository.findById(leadId);
-        if (existingLeadOptional.isPresent()) {
-            LeadDetail existingLead = existingLeadOptional.get();
-
+        if (repository.existsById(leadId)) {
+            LeadDetail existingLead = repository.findById(leadId).orElse(null);
             existingLead.setFirstName(ld.getFirstName());
             existingLead.setLastName(ld.getLastName());
             existingLead.setEmailAddress(ld.getEmailAddress());
